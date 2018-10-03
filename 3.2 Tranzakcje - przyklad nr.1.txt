@@ -1,0 +1,16 @@
+Begin Tran nr1
+select @@TRANCOUNT
+DELETE FROM StudentsCopy WHERE id = 1 
+Begin Tran nr2
+select @@TRANCOUNT
+DELETE FROM StudentsCopy WHERE id = 2
+Begin Tran nr3
+select @@TRANCOUNT
+DELETE FROM StudentsCopy WHERE id = 3
+
+
+rollback -- cofa wszystkie tranzakcje
+commit -- zatwierdza tylko zewnetrzna tranzakcje
+
+
+select * from StudentsCopy
