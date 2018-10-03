@@ -55,13 +55,3 @@ DROP INDEX Zyrafa.CL_wiek;
 CREATE CLUSTERED INDEX CL_nazwaClust ON Zyrafa(nazwa);
 CREATE CLUSTERED INDEX CL_wie3Clust ON Zyrafa(wiek);
 ----------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
