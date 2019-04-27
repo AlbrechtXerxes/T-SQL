@@ -1,0 +1,21 @@
+ALTER FUNCTION OperateTwoNumbersBy(@a INT, @b INT, @operator VARCHAR(50))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @result decimal = null;
+	IF @operator = '+'
+		SET @result = @a+@b;
+	IF @operator = '-'
+		SET @result = @a-@b;
+	IF @operator = '*'
+		SET @result = @a*@b;
+	IF @operator = '/'
+		SET @result = @a/@b;
+
+	RETURN @result*1.0;
+END
+
+select dbo.OperateTwoNumbersBy(1,4,'-') '+', 
+	dbo.OperateTwoNumbersBy(1,4,'-') '-',
+	dbo.OperateTwoNumbersBy(1,4,'*') '*',
+	dbo.OperateTwoNumbersBy(10,2,'/') '/'

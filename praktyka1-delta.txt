@@ -1,0 +1,9 @@
+Create FUNCTION [dbo].[CalculateDelta](@a int, @b int, @c int)
+RETURNS int
+AS
+BEGIN
+	declare @delta int = (@b*@b)-4*@a*@c;
+	RETURN @delta;
+END
+
+select dbo.CalculateDelta(1,4,4);

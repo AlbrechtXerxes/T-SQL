@@ -1,0 +1,33 @@
+CREATE TABLE Champions (
+    Name VARCHAR(50),
+    Class VARCHAR(50),
+    Damage INT
+); 
+--drop table Champions;
+
+INSERT INTO Champions
+VALUES ('Kath', 'mele', 35),
+ ('Paul', 'range', 37),
+ ('Merry', 'magic', 29),
+ ('Mike', 'range', 29),
+ ('Mark', 'range', 20),
+ ('Ann', 'magic', 23),
+ ('Joe', 'mele', 16),
+ ('Caludie', 'mele', 34),
+ ('Oliver', 'mele', 37),
+ ('Jack', 'range', 42),
+ ('Harry', 'mele', 17),
+ ('Harrz', 'magic', 54),
+ ('Sophia', 'magic', 39)
+
+Alter FUNCTION TopTenCustomers()
+RETURNS TABLE
+AS
+RETURN 
+(
+	SELECT Class, AVG(DAMAGE) AS Average, SUM(Damage) Sum, MAX(Damage) Max, MIN(Damage) Min
+	FROM Champions
+	GROUP BY Class
+)
+
+select * from dbo.TopTenCustomers()
